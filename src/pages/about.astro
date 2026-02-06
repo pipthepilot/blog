@@ -1,0 +1,51 @@
+---
+import BaseLayout from "../layouts/baseLayout.astro";
+const pageTitle = "About";
+const identity = {
+  firstName: "Philip",
+  country: "UK",
+  occupation: "Maker",
+  hobbies: ["guitars", "cycling", "flying"],
+};
+
+const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Writing Docs"];
+
+const happy = true;
+const finished = false;
+const goal = 4;
+---
+
+<BaseLayout pageTitle={pageTitle}>
+  <!-- content -->
+  <h2>Simple blog to test the capabilities of Astro</h2>
+  <p>
+    This blog is created to explore and demonstrate the features of the Astro
+    framework and to integrate a headless CMS.
+  </p>
+  <p>
+    Additionally, to understand how bootstrap CSS can be integrated with Astro.
+  </p>
+  <h3>Identity</h3>
+  <ul>
+    <li>First Name: {identity.firstName}</li>
+    <li>Country: {identity.country}</li>
+    <li>Occupation: {identity.occupation}</li>
+    <li>Hobbies: {identity.hobbies.join(", ")}</li>
+  </ul>
+  <h3>Skills</h3>
+  <ul>
+    {skills.map((skill) => <li>{skill}</li>)}
+  </ul>
+
+  {happy && <p>I am happy to be learning Astro!</p>}
+
+  {finished && <p>I finished this tutorial!</p>}
+
+  {
+    goal === 3 ? (
+      <p>My goal is to finish in 3 days.</p>
+    ) : (
+      <p>My goal is not 3 days.</p>
+    )
+  }
+</BaseLayout>
