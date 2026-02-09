@@ -45,6 +45,16 @@ h2 {
     margin: 0;
 }
 
+.list-links {
+    list-style: none;
+    padding: 0;
+    color: rgb(123, 119, 119);
+}
+
+.list-links:hover {
+    color: rgb(188, 99, 15);
+}
+
 .nav-links a {
     display: block;
     text-decoration: none;
