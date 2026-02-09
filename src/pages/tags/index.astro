@@ -1,0 +1,24 @@
+---
+import BaseLayout from "../../layouts/baseLayout.astro";
+// create and array of all posts
+const allPosts = Object.values(
+  import.meta.glob("../posts/*.md", { eager: true }),
+);
+// extract unique tags for static paths in getStaticPaths
+const tags = [
+  ...new Set(allPosts.map((post: any) => post.frontmatter.tags).flat()),
+];
+const pageTitle = "Tags";
+---
+
+<BaseLayout pageTitle={pageTitle}>
+  <div>
+    {
+      tags.map((tag) => (
+        <p>
+          <a href={`/tags/${tag}`}>{tag}</a>
+        </p>
+      ))
+    }
+  </div>
+</BaseLayout>
